@@ -1,2 +1,2 @@
-# tip-calculator
-Solution to a tip calculator problem
+# trip-calculator
+Solution to a trip calculator problem
