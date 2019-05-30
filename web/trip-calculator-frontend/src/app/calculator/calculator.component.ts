@@ -61,7 +61,7 @@ export class CalculatorComponent implements OnInit {
   public onSettleClick() {
     this.tripService.settleUpTrip(this.people).toPromise()
       .then(result => {
-        for (const person of result){
+        for (const person of result) {
           this.people.filter(p => p.identifier === person.identifier)[0].moneyOwed = person.moneyOwed;
         }
       }).catch(error => {
