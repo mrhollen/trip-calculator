@@ -1,0 +1,23 @@
+matrix:
+  include:
+    - language: csharp
+      solution: TripCalculator.csproj
+      mono: none
+      sudo: required
+      dist: xenial
+      dotnet: 2.2
+      before_script:
+        - cd src
+      install:
+        - dotnet restore TripCalculator.csproj
+      script:
+      - dotnet test TripCalculator.csproj
+    - language: node_js
+      sudo: true
+      before_script:
+        - cd web
+        - npm install -g @angular/cli
+        - npm install
+      script:
+        - ng lint
+        - ng build
