@@ -12,6 +12,8 @@ matrix:
         - dotnet restore
         - dotnet test
     - language: node_js
+      node_js:
+        - "10.4.1"
       sudo: true
       before_script:
         - cd web
