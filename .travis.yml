@@ -16,7 +16,7 @@ matrix:
         - "10.9"
       sudo: true
       before_script:
-        - cd web
+        - cd web/trip-calculator-frontend
         - echo 'n' | npm install -g @angular/cli
         - npm install
       script:
