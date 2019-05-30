@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  trip-calculator-frontend:
+    build:
+      context: ./web/trip-calculator-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    links:
+      - trip-calculator-backend
+
+  trip-calculator-backend:
+    build:
+      context: ./src/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"

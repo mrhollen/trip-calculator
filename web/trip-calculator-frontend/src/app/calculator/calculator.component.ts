@@ -9,10 +9,7 @@ import { Person } from '../models/person';
 })
 export class CalculatorComponent implements OnInit {
   private objectKeys = Object.keys;
-  private people: Person[] = [
-    new Person('Ted', [100, 12.5, 23, 53, 1.59]),
-    new Person('Susan', [100, 23.43, 12.23, 1.60]),
-  ];
+  private people: Person[] = [];
   private newExpenses: number[] = [];
   private newPersonName = '';
 
