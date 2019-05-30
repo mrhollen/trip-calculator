@@ -8,10 +8,9 @@ matrix:
       dotnet: 2.2
       before_script:
         - cd src
-      install:
-        - dotnet restore TripCalculator.csproj
       script:
-      - dotnet test TripCalculator.csproj
+        - dotnet restore
+        - dotnet test
     - language: node_js
       sudo: true
       before_script:
