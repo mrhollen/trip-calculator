@@ -17,7 +17,7 @@ matrix:
       sudo: true
       before_script:
         - cd web
-        - npm install -g @angular/cli
+        - no | npm install -g @angular/cli
         - npm install
       script:
         - ng lint
