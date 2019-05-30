@@ -4,14 +4,17 @@
       <h1>Total {{total | currency}} <small class="smaller">or {{average | currency}} per person</small></h1>
     </div>
     <div class="col-3">
-      <mat-form-field class="full-width">
+      <mat-form-field>
         <input matInput placeholder="Name" [(ngModel)]="newPersonName" (keyup.enter)="onAddPersonClick()" />
       </mat-form-field>
+      <button mat-button color="primary" (click)="onAddPersonClick()">
+        <i class="fas fa-plus"></i>
+      </button>
     </div>
     <div class="col-2">
-      <button mat-raised-button color="primary" (click)="onAddPersonClick()">
-        <i class="fas fa-plus"></i>
-        Person
+      <button mat-raised-button color="accent" (click)="onSettleClick()">
+        <i class="fas fa-check"></i>
+        Settle
       </button>
     </div>
   </div>
@@ -42,6 +45,13 @@
               {{expense | currency}}
             </mat-list-item>
           </mat-list>
+          <ng-template [ngIf]="person.moneyOwed">
+            <mat-list>
+              <mat-list-item *ngFor="let key of objectKeys(person.moneyOwed)">
+                Owes {{key}} {{person.moneyOwed[key] | currency}}
+              </mat-list-item>
+            </mat-list>
+          </ng-template>
           <mat-divider></mat-divider>
         </mat-card-content>
         <mat-card-actions>

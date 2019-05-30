@@ -2,6 +2,7 @@ import { v4 as uuid } from 'uuid';
 
 export class Person {
     public identifier: string;
+    public moneyOwed: {[name: string]: number};
 
     constructor(public name: string, public expenses: number[]) {
         this.identifier = uuid();

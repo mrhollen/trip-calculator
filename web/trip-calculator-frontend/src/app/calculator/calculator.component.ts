@@ -8,6 +8,7 @@ import { Person } from '../models/person';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
+  private objectKeys = Object.keys;
   private people: Person[] = [
     new Person('Ted', [100, 12.5, 23, 53, 1.59]),
     new Person('Susan', [100, 23.43, 12.23, 1.60]),
@@ -55,5 +56,16 @@ export class CalculatorComponent implements OnInit {
       person.expenses.push(this.newExpenses[person.identifier]);
       delete this.newExpenses[person.identifier];
     }
+  }
+
+  public onSettleClick() {
+    this.tripService.settleUpTrip(this.people).toPromise()
+      .then(result => {
+        for (const person of result){
+          this.people.filter(p => p.identifier === person.identifier)[0].moneyOwed = person.moneyOwed;
+        }
+      }).catch(error => {
+        console.log(error.message);
+      });
   }
 }
